@@ -1,0 +1,19 @@
+<ActionBar title="Groceries" icon="">
+</ActionBar>
+<GridLayout rows="auto, auto, *">
+
+  <GridLayout row="0" columns="*, auto" class="add-bar">
+    <TextField #groceryTextField [(ngModel)]="grocery" hint="Enter a grocery item" col="0"></TextField>
+    <Image src="res://add" (tap)="add()" col="1"></Image>
+  </GridLayout>
+
+  <Button row="1" text="{{ isShowingRecent ? 'Done' : 'Add from history' }}" (tap)="toggleRecent()"></Button>
+
+  <grocery-list row="2"
+    [groceries]="groceryList"
+    [showDeleted]="isShowingRecent"
+    (itemsLoaded)="hideLoadingIndicator()"></grocery-list>
+
+  <ActivityIndicator busy="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="2" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
+</GridLayout>
