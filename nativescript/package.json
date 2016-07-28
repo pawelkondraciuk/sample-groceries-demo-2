@@ -4,8 +4,11 @@
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.nativescript",
+    "id": "org.nativescript.nativescript.gjyg",
     "tns-android": {
+      "version": "2.1.1"
+    },
+    "tns-ios": {
       "version": "2.1.1"
     }
   },

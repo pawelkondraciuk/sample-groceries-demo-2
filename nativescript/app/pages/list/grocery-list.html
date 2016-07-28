@@ -1,0 +1,13 @@
+<ListView [items]="store.items | async | itemStatus:showDeleted" row="2" class="small-spacing" >
+    <template let-item="item">
+        <GridLayout columns="30, *, auto">
+        <StackLayout class="toggle-button" col="0" (tap)="toggleDone(item)">
+            <Image [src]="imageSource(item)"></Image>
+        </StackLayout>
+        <Label col="1" [text]="item.name" class="medium-spacing" [class.done]="item.done && !item.deleted"></Label>
+        <StackLayout col="2" class="delete-container" (tap)="delete(item)" *ngIf="!item.deleted">
+            <Image src="res://delete"></Image>
+        </StackLayout>
+        </GridLayout>
+    </template>
+</ListView>

@@ -10,7 +10,6 @@
   <Button row="1" text="{{ isShowingRecent ? 'Done' : 'Add from history' }}" (tap)="toggleRecent()"></Button>
 
   <grocery-list row="2"
-    [groceries]="groceryList"
     [showDeleted]="isShowingRecent"
     (itemsLoaded)="hideLoadingIndicator()"></grocery-list>
 

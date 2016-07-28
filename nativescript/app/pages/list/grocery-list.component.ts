@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, NgZone, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, Pipe, PipeTransform} from "@angular/core";
 import {Grocery} from "../../shared/grocery/grocery";
-import {GroceryStore} from "../..//shared/grocery/grocery-list.service";
+import {GroceryStore} from "../../shared/grocery/grocery-list.service";
 
 @Pipe({
   name: "itemStatus"
@@ -21,21 +21,7 @@ export class ItemStatusPipe implements PipeTransform {
 
 @Component({
   selector: "grocery-list",
-  template: `
-  <ListView [items]="store.items | async | itemStatus:showDeleted" row="2" class="small-spacing" [class.visible]="listLoaded">
-    <template let-item="item">
-      <GridLayout columns="30, *, auto">
-        <StackLayout class="toggle-button" col="0" (tap)="toggleDone(item)">
-          <Image [src]="imageSource(item)"></Image>
-        </StackLayout>
-        <Label col="1" [text]="item.name" class="medium-spacing" [class.done]="item.done && !item.deleted"></Label>
-        <StackLayout col="2" class="delete-container" (tap)="delete(item)" *ngIf="!item.deleted">
-          <Image src="res://delete"></Image>
-        </StackLayout>
-      </GridLayout>
-    </template>
-  </ListView>
-  `,
+  templateUrl: "./pages/list/grocery-list.html",
   styleUrls: ["./pages/list/grocery-list.css"],
   pipes: [ItemStatusPipe],
   changeDetection: ChangeDetectionStrategy.OnPush

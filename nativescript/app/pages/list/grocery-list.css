@@ -1,6 +1,6 @@
-ListView {
+/*ListView {
   opacity: 0;
-}
+}*/
 .visible {
   animation-name: show;
   animation-duration: 1s;
